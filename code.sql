@@ -1,6 +1,6 @@
-drop table person;
-drop table pet;
-drop table person_pet;
+drop table if exists person;
+drop table if exists pet;
+drop table if exists person_pet;
 
 create table person (
 	id integer primary key,
@@ -61,3 +61,10 @@ select * from pet;
 insert into pet values (1, 'gigantor', 'robot', 1, 0);
 
 select * from pet;
+
+alter table person
+	add column height integer;
+alter table person
+	add column weight integer;
+
+select height, weight from person;
