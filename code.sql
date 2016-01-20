@@ -22,7 +22,7 @@ create table person_pet (
 	pet_id integer
 );
 insert into person (id, first_name, last_name, age)
-	values (0, 'zed', 'shaw', 37);
+	values (0, 'Zed', 'shaw', 37);
 insert into person (id, first_name, last_name, age)
 	values (1, 'harry', 'moreno', 26);
 
@@ -32,12 +32,15 @@ insert into pet (id, name, breed, age, dead)
 	values (1, 'foo', 'foo', 10, 1);
 insert into pet (id, name, breed, age, dead)
 	values (2, 'bar', 'bar', 50, 0);
+insert into pet (id, name, breed, age, dead)
+	values (3, 'fluffy dead', 'cat', 1000, 1);
 
 insert into pet values (1, 'gigantor', 'robot', 1, 1);
 insert into person_pet values (0, 0);
 insert into person_pet values (0, 1);
 insert into person_pet values (1, 1);
 insert into person_pet values (1, 2);
+insert into person_pet values (0, 3);
 select * from person;
 select name, age from pet;
 select name, age from pet where dead = 0;
@@ -51,7 +54,7 @@ where
 
 select name, age from pet where dead = 1;
 
-delete from pet where dead = 1;
+-- delete from pet where dead = 1;
 
 select * from pet;
 
