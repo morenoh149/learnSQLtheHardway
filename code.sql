@@ -58,13 +58,15 @@ select name, age from pet where dead = 1;
 
 select * from pet;
 
-insert into pet values (1, 'gigantor', 'robot', 1, 0);
+insert into pet values (4, 'gigantor', 'robot', 1, 0, 123123123);
 
 select * from pet;
 
+/*
 alter table person
 	add column height integer;
 alter table person
 	add column weight integer;
 
 select height, weight from person;
+*/
