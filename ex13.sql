@@ -31,11 +31,11 @@ insert into person (id, first_name, last_name, age, dead, phone_number, salary, 
   (4, 'a', 'a', 14, 0, "12345678", 123.1, 12345),
   (5, 'a', 'a', 14, 0, "12345678", 123.1, 12345);
 insert into pet (id, name, breed, age, dead, dob, parent) values
-  (4, 'a', 'cat', 4, 0, 12345678, 5),
-  (5, 'a', 'cat', 4, 0, 12345678, 5),
-  (6, 'a', 'cat', 4, 0, 12345678, 5),
-  (7, 'a', 'cat', 4, 0, 12345678, 5),
-  (8, 'a', 'cat', 4, 0, 12345678, 5);
+  (4, 'a', 'cat', 4, 0, 12345678, 3),
+  (5, 'a', 'cat', 4, 0, 12345678, 3),
+  (6, 'a', 'cat', 4, 0, 12345678, 3),
+  (7, 'a', 'cat', 4, 0, 12345678, 4),
+  (8, 'a', 'cat', 4, 0, 12345678, 4);
 insert into person_pet (person_id, pet_id, purchased_on) values
   (5, 4, 123456),
   (5, 5, 123456),
@@ -44,8 +44,18 @@ insert into person_pet (person_id, pet_id, purchased_on) values
   (5, 8, 123456);
 
 -- Write a query that can find all the names of pets and their owners bought after 2004. Key to this is to map the person_pet based on the purchased_on column to the pet and parent.
-select * from;
+select first_name from person where id in (
+  select person_id from person_pet where purchased_on > 1
+);
+select name from pet where id in (
+  select pet_id from person_pet where purchased_on > 1
+);
+
+-- with a join
+select person.first_name, pet.name from 
+person join person_pet on person.id = person_pet.person_id
+			 join pet on person_pet.pet_id = pet.id;
 
 -- Write a query that can find the pets that are children of a given pet. Again look at the pet.parent to do this. It's actually easy so don't over think it.
-
+select * from pet where parent=3;
 
